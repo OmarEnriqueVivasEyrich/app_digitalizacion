@@ -10,3 +10,8 @@ pillow
 pdf2image
 fpdf
 pytesseract
+streamlit
+pillow
+fpdf
+pytesseract
+PyMuPDF
