@@ -1,6 +1,7 @@
 import streamlit as st
 import fitz  # PyMuPDF
 import pytesseract
+from PIL import Image
 from fpdf import FPDF
 import tempfile
 
@@ -22,8 +23,10 @@ def extraer_texto_con_ocr(pdf_path):
         # Convertir la página a una imagen (pixmap)
         pix = pagina.get_pixmap(dpi=300)
 
-        # Convertir el pixmap a una imagen y extraer texto con Tesseract
-        img = pix.tobytes("png")
+        # Convertir el pixmap a una imagen PIL para que pytesseract pueda procesarla
+        img = Image.open(pix.tobytes("png"))
+
+        # Extraer texto con Tesseract OCR
         texto = pytesseract.image_to_string(img)
         
         textos.append(f"Página {i+1}:\n{texto.strip()}\n")
