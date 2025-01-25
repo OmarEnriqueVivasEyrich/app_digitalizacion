@@ -5,3 +5,8 @@ fpdf
 torch
 sentencepiece
 Pillow
+streamlit
+pillow
+pdf2image
+fpdf
+pytesseract
