@@ -4,6 +4,7 @@ import pytesseract
 from PIL import Image
 from fpdf import FPDF
 import tempfile
+import io
 
 # Título de la aplicación
 st.title("Extracción de texto de PDF con OCR")
@@ -24,7 +25,8 @@ def extraer_texto_con_ocr(pdf_path):
         pix = pagina.get_pixmap(dpi=300)
 
         # Convertir el pixmap a una imagen PIL para que pytesseract pueda procesarla
-        img = Image.open(pix.tobytes("png"))
+        img_bytes = pix.tobytes("png")
+        img = Image.open(io.BytesIO(img_bytes))  # Usamos BytesIO para abrir los bytes de la imagen
 
         # Extraer texto con Tesseract OCR
         texto = pytesseract.image_to_string(img)
