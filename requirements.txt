@@ -19,3 +19,7 @@ streamlit
 pillow
 pytesseract
 PyMuPDF
+streamlit
+pillow
+pytesseract
+PyMuPDF
