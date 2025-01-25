@@ -1,0 +1,7 @@
+streamlit
+transformers
+pdf2image
+fpdf
+torch
+sentencepiece
+Pillow
